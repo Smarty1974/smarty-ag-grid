@@ -1,0 +1,23 @@
+<!-- column-config-form.component.html -->
+<form [formGroup]="columnForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="name" required>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="aggregate">Aggrega</mat-checkbox>
+  <mat-checkbox formControlName="sum">Somam</mat-checkbox>
+  <mat-checkbox formControlName="sortable">Sorta</mat-checkbox>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Fuzione di aggrgazione</mat-label>
+    <mat-select formControlName="aggregationFunction">
+      <mat-option value="sum">Sum</mat-option>
+      <mat-option value="avg">Avg</mat-option>
+      <mat-option value="min">Min</mat-option>
+      <mat-option value="max">Max</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" [disabled]="!columnForm.valid">Salva</button>
+</form>
